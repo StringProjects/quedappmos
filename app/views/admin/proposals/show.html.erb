@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Detalle de la propuesta</h1>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @proposal.accepted %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @proposal.comment %>
+</p>
+
+
+<p>
+  <strong>Fechas preferidas:</strong>
+	<% @proposal.possibles.each do |possible| %>
+     	<li><%= possible.date %></li>
+ 	<% end %>
+ </p>
+
+
+
+
+<%= link_to 'Back', admin_proposals_path %>

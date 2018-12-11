@@ -1,0 +1,3 @@
+class PossiblesController < ApplicationController
+
+end

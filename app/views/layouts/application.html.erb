@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>QuedAPPmos?</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+  </head>
+
+  <body>
+
+<div class="row">
+  <% if notice.present? %>
+    <div class="alert alert-success alert-dismissable col-sm-9">
+
+      <strong><%= t('common.info') %></strong>
+      <%= notice.html_safe %>
+      <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+    </div>
+  <% end %>
+  <% if alert.present? %>
+    <div class="alert alert-danger alert-dismissable col-sm-9">
+
+      <strong><%= t('common.danger') %></strong>
+      <%= alert.html_safe %>
+      <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+    </div>
+  <% end %>
+</div>
+
+
+  <%= yield %>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,65 @@
+
+
+  <%= form_with(model: proposal, local: true, class: "form-group") do |form| %>
+    <% if proposal.errors.any? %>
+      <div>
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h2 class="panel-title"><%= pluralize(proposal.errors.count, "error") %> impide que tu propuesta sea guardada:</h2>
+                <div class="panel-body">
+                  <ul>
+                    <% proposal.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            </div>
+        </div>
+      </div>
+    <% end %>
+
+
+    <div class="center field row form-group">
+      <div class="row"><h4>Selecciona la siguiente casilla si aceptas quedar para un plan sorpresa:</h4></div>
+      <div class="row"><%= form.label :acepto %></div>
+      <div class="row"><%= form.check_box :accepted %></div>
+    </div>
+    <hr>
+    <br>
+
+    <div class="row"><p>Selecciona una o varias de las siguientes fechas posibles:</p></div>
+
+    <div class="form-group">
+
+      <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 alert alert-warning">
+          <%= form.collection_check_boxes :possible_ids, Possible.all, :id, :date do |possible| %>
+            <% possible.label(class: "checkbox-inline input_checkbox") {possible.check_box(class:"checkbox") + possible.text} %>
+          <% end %>
+        </div>
+        <div class="col-sm-2"></div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="field form-group col-sm-12 row">
+      <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <%= form.text_area :comment, class: "form-control", placeholder: "Deja aquí tus comentarios", rows:3 %>
+        </div>
+      <div class="col-sm-3"></div>
+
+    </div>
+    <br>
+    <br>
+
+
+
+    <div class="actions">
+      <%= form.submit class: "btn btn-success btn-lg", value:"Enviar" %>
+    </div>
+  <% end %>
+
+</div>
+

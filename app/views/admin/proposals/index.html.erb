@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fechas propuestas</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proposals.each do |proposal| %>
+      <tr>
+        <td><%= proposal.user.name %></td>
+        <td><%= proposal.accepted %></td>
+        <td><%= proposal.comment %></td>
+        <td>
+          <% proposal.possibles.each do |possible| %>
+            <li><%= possible.date %></li>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', admin_proposal_path(proposal) %></td>
+        <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
+        <td><%= link_to 'Destroy', proposal_path(proposal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

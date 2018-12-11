@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Possibles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @possibles.each do |possible| %>
+      <tr>
+        <td><%= possible.date %></td>
+        <td><%= link_to 'Show', admin_possible_path(possible) %></td>
+        <td><%= link_to 'Edit', edit_admin_possible_path(possible) %></td>
+        <td><%= link_to 'Destroy', admin_possible_path(possible), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Possible', new_admin_possible_path %>

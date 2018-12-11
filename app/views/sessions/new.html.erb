@@ -1,0 +1,38 @@
+
+
+
+<div class="jumbotron jumboformlogin center">
+
+	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+
+	<h4 class="title2">¡Loguéate, contamos contigo!</h4>
+	<div class="row">
+		<div class="col-sm-12">
+			<%= form_with url: login_path, class: "" do |f| %>
+
+				<div class="form-group">
+
+					<div class="col-sm-12">
+						<%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true %>
+					</div>
+				</div>
+
+				<br>
+
+				<div class="form-group">
+					<div class="col-sm-12 center">
+						<%= f.submit class: "btn btn-success btn-lg loginbtn ", value:"login" %>
+					</div>
+				</div>
+
+
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+

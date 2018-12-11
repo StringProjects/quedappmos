@@ -1,0 +1,30 @@
+
+
+<div class="well col-sm-3">
+	<p id="notice"><%= notice %></p>
+
+	<p>
+		<strong>Aceptas:</strong>
+		<%= @proposal.accepted %>
+	</p>
+
+	<p>
+		<strong>Fechas seleccionadas:</strong>
+		<% @proposal.possibles.each do |possible| %>
+		<li><%= possible.date %></li>
+	<% end %>
+	</p>
+
+	<p>
+		<strong>Comentario:</strong>
+		<%= @proposal.comment %>
+	</p>
+
+	<%= link_to 'Editar', edit_proposal_path(@proposal) %> |
+	<%= link_to 'Inicio', root_path %>
+
+</div>
+
+
+
+

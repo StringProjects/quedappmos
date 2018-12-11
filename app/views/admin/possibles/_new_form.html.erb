@@ -1,0 +1,26 @@
+<%= form_for(@possible, url: admin_possibles_path, html:{}) do |form| %>
+  <% if possible.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(possible.errors.count, "error") %> prohibited this possible from being saved:</h2>
+
+      <ul>
+      <% possible.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
