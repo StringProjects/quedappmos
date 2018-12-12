@@ -25,9 +25,10 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        UserMailer.with(user: @user).confirmation_email.deliver_now
+
         format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
 
+        UserMailer.with(user: @user).confirmation_email.deliver_now
 
       else
         format.html { render 'admin/users/new' }

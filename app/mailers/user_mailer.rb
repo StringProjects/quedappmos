@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-	default from: 'fernando.mencia@string-projects.com'
+	default from: ''
 
 	def confirmation_email 
 		@user = params[:user]
